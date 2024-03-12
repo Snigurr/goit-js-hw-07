@@ -1,30 +1,26 @@
+const submitButton = document.querySelector('.submit'); 
 
-const myButton = document.querySelector('button');
+document.querySelector('.login-form').addEventListener('submit', function (e) {
+    e.preventDefault(); 
 
+    const emailInp = e.target.elements.email.value.trim(); 
+    const passInp = e.target.elements.password.value.trim(); 
 
-
-myButton.addEventListener('click', (e) => {
-    
-const emailInp = document.getElementsByName('email')[0].value.trim();
-    const passInp = document.getElementsByName('password')[0].value.trim();
-    
-    const obj = {
-        email: emailInp,
-        password: passInp
-    };
-   
-    
     if (emailInp === '' || passInp === '') {
         alert('All form fields must be filled in');
-        e.preventDefault();
     } else {
+        const obj = {
+            email: emailInp,
+            password: passInp
+        };
 
-        console.log(obj);
-        e.preventDefault();
-        document.querySelector('.login-form').reset();
+        console.log(obj); 
+
+        e.target.reset(); 
     }
 });
-    
+
+
 
 
 

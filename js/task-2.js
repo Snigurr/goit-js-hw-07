@@ -30,13 +30,17 @@ const images = [
 
 
 const gallery = document.querySelector('.gallery');
+const fragment = document.createDocumentFragment(); 
 
-images.forEach(function(image) {
+images.forEach(function (image) {
+  
+  const liElement = document.createElement('li'); 
+  const imgElement = document.createElement('img');
+  imgElement.src = image.url;
+  imgElement.alt = image.alt;
 
-    const imgElement = document.createElement('img');
-
-    imgElement.src = image.url;
-    imgElement.alt = image.alt;
-
-    gallery.appendChild(imgElement);
+  liElement.appendChild(imgElement); 
+  fragment.appendChild(liElement); 
 });
+
+gallery.appendChild(fragment); 
